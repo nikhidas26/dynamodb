@@ -1,0 +1,37 @@
+package com.test.nikhil;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class TestStringSplit {
+	
+	public static void main(String[] args) {
+		File file = new File("/Users/nikhil_das23/Desktop/Hadoop-Edureka/assignment-week-3---patents/patent.txt");
+		FileInputStream fis = null;
+		try {
+			fis = new FileInputStream(file);
+			int content;
+			int i = 1;
+			while((content = fis.read()) != -1) {
+				if(i == 1) {
+					System.out.println((char) content);
+				} else {
+					break;
+				}
+				i++;
+			}
+		} catch(IOException e) {
+			System.err.println("Exception : " + e.getMessage()); 
+		} finally {
+			if(fis != null) {
+				try {
+					fis.close();
+				} catch (IOException e) {					
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+}

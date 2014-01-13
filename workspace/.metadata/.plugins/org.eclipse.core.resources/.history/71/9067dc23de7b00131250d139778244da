@@ -1,0 +1,9 @@
+package com.patent.nikhil.mr;
+
+public class PatentJob {
+	
+	public static void main(String[] args) {
+		
+	}
+	
+}

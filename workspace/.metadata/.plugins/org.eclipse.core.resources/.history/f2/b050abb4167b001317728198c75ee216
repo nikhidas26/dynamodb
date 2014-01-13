@@ -1,0 +1,7 @@
+package com.test.nikhil.mr;
+
+import org.apache.hadoop.mapreduce.Mapper;
+
+public class WordCountMappers extends Mapper {
+
+}

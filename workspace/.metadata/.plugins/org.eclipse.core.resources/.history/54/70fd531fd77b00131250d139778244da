@@ -1,0 +1,38 @@
+package com.test.nikhil.mr;
+
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+public class WordCountJob {
+
+	public static void main(String[] args) throws Exception{
+		
+		String input = args[0];
+		String output = args[1];
+		
+		Job job = new Job();
+		
+		job.setJarByClass(WordCountJob.class);
+		job.setJobName("Word Count");
+		
+		
+		// This is where I am splitting. FileInputFormat splits with 
+		FileInputFormat.addInputPath(job, new Path(input));
+		FileOutputFormat.setOutputPath(job, new Path(output));
+		
+		job.setMapperClass(WordCountMapper.class);
+		job.setReducerClass(WordCountReducer.class);
+		
+		job.setOutputKeyClass(Text.class);
+		job.setOutputValueClass(IntWritable.class);
+		
+		job.waitForCompletion(true);
+		
+		
+	}
+
+}
