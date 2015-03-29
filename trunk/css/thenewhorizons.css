@@ -1,0 +1,28 @@
+#homeNavBar {
+    margin-bottom:0;
+  }
+
+.imageAndText {
+	position: relative;
+} 
+
+.imageAndText .col {
+	position: absolute; 
+	z-index: 1; 
+	
+	text-align:center;
+	left: 45%;
+	top: 50%;/**/
+}
+
+.page-header {
+	margin-top: 0;
+}
+
+.panel-body {
+	padding-top: 0;
+}
+
+.featuredImg {
+	margin-bottom: 15px;
+}
